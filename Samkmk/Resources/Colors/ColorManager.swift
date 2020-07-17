@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct ColorManager {
-
+    
     static let MainColor = Color("MainColor")
-
+    static let SecondaryColor = Color("SecondaryColor")
+    static let Gray = Color("Gray")
+    
 }

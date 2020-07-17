@@ -24,21 +24,37 @@ struct CategoriesView: View {
     var body: some View {
         VStack{
             HStack {
+                Text("الأقسام")
+                    .font(.custom(FontManger.CairoBold, size: CGFloat(FontManger.titleSize)))
+                    .fontWeight(.bold)
+                    .frame(minWidth: 0, maxWidth: .infinity,alignment: .topLeading)
+                    .foregroundColor(ColorManager.MainColor)
                 Text("عرض الكل (12)")
                     .font(.custom(FontManger.CairoRegular, size: CGFloat(FontManger.SmallSize)))
-                    .frame(minWidth: 0, maxWidth: .infinity,alignment: .topLeading)
-                    .foregroundColor(.secondary)
-                Text("الأقسام")
-                    .font(.custom(FontManger.CairoBold, size: CGFloat(FontManger.BigSize)))
                     .frame(minWidth: 0, maxWidth: .infinity,alignment: .topTrailing)
-                    .foregroundColor(ColorManager.MainColor)
+                    .foregroundColor(.secondary)
+                
+            }
+            .padding(.bottom, -20.0)
+            
+            ScrollView(.horizontal,showsIndicators: false){
+                HStack {
+                    ForEach(1..<10){_ in
+                        CategoryCell(name: "روبيان")
+                    }
+                }
             }
             
-            
-            ScrollView(.horizontal){
-                CategoryCell()
-            }
         }
+    }
+}
+
+
+struct CategoriesView_Previews: PreviewProvider {
+    static var previews: some View {
+        CategoriesView()
+            .environment(\.locale, .init(identifier: "ar"))
+            .environment(\.layoutDirection, .rightToLeft)
     }
 }
 

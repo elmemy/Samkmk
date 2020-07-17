@@ -15,11 +15,17 @@ struct SliderCell: View {
                 ForEach(1..<10){_ in
                     Image("Slider")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .scaledToFit()
+                        .aspectRatio(contentMode: .fill)
                 }
             }
-        }
-        
+        }        
+    }
+}
+
+struct SliderCell_Previews: PreviewProvider {
+    static var previews: some View {
+        SliderCell()
+            .environment(\.locale, .init(identifier: "ar"))
+            .environment(\.layoutDirection, .rightToLeft)
     }
 }
